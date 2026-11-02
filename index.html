@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#123d2b">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Aridhya Mart">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.svg" type="image/svg+xml">
+<title>Aridhya Mart | Online Grocery</title>
+<style>
+:root{--green:#123d2b;--green2:#1d6245;--mint:#eaf3ed;--gold:#c6a15b;--ink:#17231c;--muted:#718078;--line:#e7ece8;--paper:#fbfcfa;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}.top{background:var(--green);color:#fff;padding:10px 16px;text-align:center;font-size:12px;letter-spacing:.2px}.wrap{max-width:1120px;margin:auto;padding:0 18px}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}.head{height:76px;display:flex;align-items:center;gap:18px}.brand{display:flex;align-items:center;gap:10px;min-width:205px}.mark{width:42px;height:42px;border-radius:13px;background:var(--green);display:grid;place-items:center;color:#fff;font-size:22px}.brand b{display:block;font-size:18px;letter-spacing:.2px;color:var(--green)}.brand small{color:var(--muted);font-size:10px;letter-spacing:1.5px}.search{flex:1;position:relative}.search input{width:100%;border:1px solid var(--line);background:#f7f9f7;border-radius:12px;padding:13px 15px 13px 42px;outline:none}.search span{position:absolute;left:14px;top:11px;font-size:18px;color:var(--muted)}.cartbtn{border:0;background:var(--green);color:white;border-radius:12px;padding:12px 16px;font-weight:700;white-space:nowrap}.cartbtn em{font-style:normal;background:#fff;color:var(--green);border-radius:20px;padding:2px 7px;margin-left:5px}
+.hero{margin:24px auto 22px;background:linear-gradient(112deg,#123d2b 0%,#1d6245 66%,#327b58 100%);border-radius:22px;min-height:250px;color:#fff;display:grid;grid-template-columns:1.2fr .8fr;overflow:hidden;position:relative}.hero-copy{padding:34px 36px;position:relative;z-index:1}.eyebrow{color:#e7d5a8;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(30px,4vw,46px);line-height:1.08;margin:12px 0 10px;max-width:540px}.hero p{color:#e2eee6;margin:0 0 22px;font-size:14px}.hero .shopnow{background:#fff;color:var(--green);border:0;border-radius:10px;padding:12px 18px;font-weight:800}.hero-art{display:grid;place-items:center;font-size:110px;opacity:.95;background:radial-gradient(circle at 55% 48%,#ffffff22,transparent 58%);position:relative}.hero-art:after{content:"";position:absolute;width:210px;height:210px;border:1px solid #ffffff33;border-radius:50%}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 30px}.perk{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px}.perk i{font-style:normal;font-size:21px}.perk b{display:block;font-size:12px}.perk small{color:var(--muted);font-size:10px}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin:28px 0 14px}.section-head h2{font-size:22px;margin:0;color:var(--green)}.section-head p{margin:4px 0 0;color:var(--muted);font-size:12px}
+.cats{display:flex;gap:10px;overflow:auto;padding:2px 0 8px;scrollbar-width:none}.cat{border:1px solid var(--line);background:#fff;border-radius:30px;padding:10px 16px;white-space:nowrap;color:#435148;font-size:13px}.cat.active{background:var(--green);color:#fff;border-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:35px}.product{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.2s;display:flex;flex-direction:column}.product:hover{transform:translateY(-2px);box-shadow:0 10px 24px #173b2510}.photo{height:145px;background:linear-gradient(135deg,#f0f5f0,#e5eee7);display:grid;place-items:center;font-size:64px;position:relative}.tag{position:absolute;top:10px;left:10px;background:#fff;color:var(--green);border-radius:6px;padding:5px 7px;font-size:10px;font-weight:800}.pbody{padding:13px;display:flex;flex-direction:column;flex:1}.pbody small{color:var(--muted);font-size:11px}.pbody h3{font-size:14px;margin:5px 0 10px;min-height:35px}.price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto}.price{font-size:17px;font-weight:800;color:var(--green)}.unit{font-size:10px;color:var(--muted);font-weight:500}.add{border:1px solid var(--green);background:#fff;color:var(--green);border-radius:9px;padding:8px 13px;font-weight:800}.add:hover{background:var(--green);color:#fff}.qty{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:9px;padding:4px}.qty button{border:0;background:var(--mint);color:var(--green);width:25px;height:25px;border-radius:7px;font-weight:900}.qty b{font-size:12px;min-width:10px;text-align:center}
+.empty{grid-column:1/-1;text-align:center;padding:35px;color:var(--muted);background:white;border:1px dashed var(--line);border-radius:14px}
+footer{background:#102f22;color:#e8f0eb;margin-top:40px;padding:28px 0}.foot{display:flex;justify-content:space-between;gap:20px;align-items:center}.foot b{font-size:17px}.foot small{color:#b6c9bd}
+.overlay{position:fixed;inset:0;background:#0c1c13a8;z-index:30;display:none;justify-content:flex-end}.overlay.show{display:flex}.drawer{background:#fff;width:min(440px,100%);height:100%;overflow:auto;padding:22px;box-shadow:-12px 0 35px #0002}.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px}.drawer-head h2{margin:0;color:var(--green)}.close{border:0;background:#f1f4f1;border-radius:9px;width:35px;height:35px;font-size:20px}.cart-items{padding:12px 0}.cartitem{display:grid;grid-template-columns:48px 1fr auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.cartemoji{width:46px;height:46px;background:var(--mint);border-radius:10px;display:grid;place-items:center;font-size:25px}.cartitem b{font-size:13px}.cartitem small{display:block;color:var(--muted);font-size:11px;margin-top:3px}.cartitem .remove{border:0;background:none;color:#9b5b4f;font-size:11px}.total{border-top:1px solid var(--line);padding-top:15px}.totalrow{display:flex;justify-content:space-between;margin:8px 0;font-size:13px}.grand{font-size:19px;font-weight:900;color:var(--green)}.form{margin-top:20px}.form h3{font-size:15px;color:var(--green)}.form label{display:block;font-size:11px;color:#5e6d63;margin:12px 0 5px}.form input,.form textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:11px;outline-color:var(--green)}.form textarea{min-height:70px;resize:vertical}.checkout{width:100%;margin-top:15px;background:var(--green);color:white;border:0;border-radius:11px;padding:14px;font-weight:800}.note{font-size:10px;color:var(--muted);line-height:1.5;margin-top:10px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#142f22;color:#fff;padding:11px 16px;border-radius:10px;font-size:12px;z-index:50;display:none}
+@media(max-width:760px){.head{height:auto;min-height:68px;flex-wrap:wrap;padding:12px 0;gap:10px}.brand{min-width:0;flex:1}.search{order:3;flex-basis:100%}.cartbtn{padding:10px 12px}.hero{grid-template-columns:1fr;min-height:230px}.hero-copy{padding:28px 24px}.hero-art{position:absolute;right:-20px;bottom:-22px;font-size:88px;opacity:.3}.hero-art:after{width:160px;height:160px}.perks{gap:7px}.perk{padding:10px 7px;gap:6px}.perk i{font-size:17px}.perk b{font-size:10px}.perk small{font-size:9px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.photo{height:125px;font-size:55px}.pbody{padding:10px}.pbody h3{font-size:13px}.section-head h2{font-size:19px}.foot{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="top">आपकी रोज़मर्रा की ज़रूरतें — अब एक ही जगह पर</div>
+<header><div class="wrap head">
+  <div class="brand"><div class="mark">A</div><div><b>ARIDHYA MART</b><small>YOUR DAILY NEEDS, OUR PRIORITY</small></div></div>
+  <div class="search"><span>⌕</span><input id="search" placeholder="आटा, दाल, तेल या कोई सामान खोजें..." aria-label="सामान खोजें"></div>
+  <button class="cartbtn" onclick="openCart()">🛒 Cart <em id="cartCount">0</em></button>
+</div></header>
+<main class="wrap">
+  <section class="hero">
+    <div class="hero-copy"><div class="eyebrow">WELCOME TO ARIDHYA MART</div><h1>हर दिन की खरीदारी,<br>अब आसान।</h1><p>घर बैठे अपना सामान चुनें और ऑर्डर तैयार करें।</p><button class="shopnow" onclick="document.getElementById('productsTitle').scrollIntoView({behavior:'smooth'})">खरीदारी शुरू करें →</button></div>
+    <div class="hero-art">🛍️</div>
+  </section>
+  <div class="perks">
+    <div class="perk"><i>🧺</i><div><b>रोज़मर्रा का सामान</b><small>एक जगह पर</small></div></div>
+    <div class="perk"><i>🌿</i><div><b>चुनिंदा गुणवत्ता</b><small>आपकी पसंद, हमारी प्राथमिकता</small></div></div>
+    <div class="perk"><i>🤝</i><div><b>आसान ऑर्डर</b><small>सीधा और सुविधाजनक</small></div></div>
+  </div>
+  <div class="section-head"><div><h2>कैटेगरी चुनें</h2><p>अपनी ज़रूरत का सामान जल्दी खोजें</p></div></div>
+  <div class="cats" id="categories"></div>
+  <div class="section-head" id="productsTitle"><div><h2>लोकप्रिय सामान</h2><p>अपनी खरीदारी की सूची में जोड़ें</p></div><small id="resultCount" style="color:var(--muted)"></small></div>
+  <div class="grid" id="products"></div>
+</main>
+<footer><div class="wrap foot"><div><b>ARIDHYA MART</b><br><small>आपकी रोज़मर्रा की ज़रूरतों का भरोसेमंद साथी</small></div><small>ऑर्डर भेजने से पहले सामान और कुल राशि जाँच लें।</small></div></footer>
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()"><aside class="drawer">
+  <div class="drawer-head"><h2>आपका Cart</h2><button class="close" onclick="closeCart()">×</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="total" id="totalBox"></div>
+  <div class="form"><h3>ऑर्डर की जानकारी</h3>
+    <label for="custName">आपका नाम</label><input id="custName" placeholder="पूरा नाम">
+    <label for="custPhone">मोबाइल नंबर</label><input id="custPhone" inputmode="numeric" maxlength="10" placeholder="10 अंकों का मोबाइल नंबर">
+    <label for="custAddress">पता</label><textarea id="custAddress" placeholder="मकान नंबर, गली, मोहल्ला"></textarea>
+    <label for="custNote">कोई खास निर्देश (वैकल्पिक)</label><input id="custNote" placeholder="जैसे: शाम को डिलीवरी करें">
+    <button class="checkout" onclick="placeOrder()">ऑर्डर तैयार करें →</button>
+    <p class="note">यह डेमो ऑर्डर है। बटन दबाने पर ऑर्डर का मैसेज शेयर/कॉपी करने के लिए तैयार होगा। दुकान का WhatsApp नंबर अभी जोड़ा नहीं गया है।</p>
+  </div>
+</aside></div>
+<div class="toast" id="toast"></div>
+<script>
+const items=[
+{id:1,name:"आशीर्वाद गेहूं आटा",cat:"आटा और चावल",price:290,unit:"10 kg",emoji:"🌾",tag:"लोकप्रिय"},
+{id:2,name:"बासमती चावल",cat:"आटा और चावल",price:120,unit:"1 kg",emoji:"🍚"},
+{id:3,name:"तूर/अरहर दाल",cat:"दालें",price:145,unit:"1 kg",emoji:"🫘"},
+{id:4,name:"मूंग दाल",cat:"दालें",price:125,unit:"1 kg",emoji:"🫘",tag:"अच्छी पसंद"},
+{id:5,name:"चना दाल",cat:"दालें",price:85,unit:"1 kg",emoji:"🟡"},
+{id:6,name:"सरसों तेल",cat:"तेल और घी",price:165,unit:"1 L",emoji:"🫙"},
+{id:7,name:"रिफाइंड तेल",cat:"तेल और घी",price:145,unit:"1 L",emoji:"🧴"},
+{id:8,name:"चीनी",cat:"राशन",price:48,unit:"1 kg",emoji:"🍚"},
+{id:9,name:"नमक",cat:"राशन",price:22,unit:"1 kg",emoji:"🧂"},
+{id:10,name:"हल्दी पाउडर",cat:"मसाले",price:42,unit:"100 g",emoji:"🟨"},
+{id:11,name:"लाल मिर्च पाउडर",cat:"मसाले",price:55,unit:"100 g",emoji:"🌶️"},
+{id:12,name:"धनिया पाउडर",cat:"मसाले",price:38,unit:"100 g",emoji:"🌿"},
+{id:13,name:"नहाने का साबुन",cat:"पर्सनल केयर",price:35,unit:"1 pc",emoji:"🧼"},
+{id:14,name:"डिटर्जेंट पाउडर",cat:"घर की सफाई",price:95,unit:"1 kg",emoji:"🫧"},
+{id:15,name:"बिस्कुट",cat:"स्नैक्स",price:10,unit:"1 pack",emoji:"🍪"},
+{id:16,name:"नमकीन",cat:"स्नैक्स",price:30,unit:"1 pack",emoji:"🥨"}
+];
+const cats=["सभी","आटा और चावल","दालें","तेल और घी","राशन","मसाले","पर्सनल केयर","घर की सफाई","स्नैक्स"];
+let active="सभी",cart=JSON.parse(localStorage.getItem("aridhyaCustomerCart")||"{}");
+const money=n=>"₹"+n.toLocaleString("en-IN");
+function save(){localStorage.setItem("aridhyaCustomerCart",JSON.stringify(cart));}
+function renderCats(){document.getElementById("categories").innerHTML=cats.map(c=>`<button class="cat ${active===c?'active':''}" onclick="setCat('${c}')">${c}</button>`).join("")}
+function setCat(c){active=c;renderCats();renderProducts()}
+function renderProducts(){
+ const q=document.getElementById("search").value.toLowerCase().trim();
+ const list=items.filter(p=>(active==="सभी"||p.cat===active)&&(p.name.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q)));
+ document.getElementById("resultCount").textContent=list.length+" सामान";
+ document.getElementById("products").innerHTML=list.length?list.map(p=>`<article class="product"><div class="photo"><span>${p.emoji}</span>${p.tag?`<span class="tag">${p.tag}</span>`:""}</div><div class="pbody"><small>${p.cat}</small><h3>${p.name}</h3><div class="price-row"><div class="price">${money(p.price)} <span class="unit">/ ${p.unit}</span></div>${cart[p.id]?`<div class="qty"><button onclick="changeQty(${p.id},-1)">−</button><b>${cart[p.id]}</b><button onclick="changeQty(${p.id},1)">+</button></div>`:`<button class="add" onclick="changeQty(${p.id},1)">+ Add</button>`}</div></div></article>`).join(""):`<div class="empty">इस खोज में कोई सामान नहीं मिला। दूसरा नाम खोजें।</div>`;
+}
+function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];save();renderProducts();renderCartCount();if(document.getElementById("overlay").classList.contains("show"))renderCart()}
+function renderCartCount(){document.getElementById("cartCount").textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+function openCart(){document.getElementById("overlay").classList.add("show");renderCart()}
+function closeCart(){document.getElementById("overlay").classList.remove("show")}
+function renderCart(){
+ const entries=Object.entries(cart).map(([id,q])=>({p:items.find(x=>x.id==id),q})).filter(x=>x.p);
+ const box=document.getElementById("cartItems");
+ box.innerHTML=entries.length?entries.map(({p,q})=>`<div class="cartitem"><div class="cartemoji">${p.emoji}</div><div><b>${p.name}</b><small>${money(p.price)} / ${p.unit} · Qty ${q}</small><button class="remove" onclick="changeQty(${p.id},-${q})">हटाएँ</button></div><b>${money(p.price*q)}</b></div>`).join(""):`<div class="empty">आपका Cart अभी खाली है।<br>पहले कुछ सामान जोड़ें।</div>`;
+ const subtotal=entries.reduce((s,{p,q})=>s+p.price*q,0);
+ document.getElementById("totalBox").innerHTML=`<div class="totalrow"><span>सामान का कुल</span><b>${money(subtotal)}</b></div><div class="totalrow"><span>डिलीवरी शुल्क</span><span>दुकान से पुष्टि होगी</span></div><div class="totalrow grand"><span>कुल</span><span>${money(subtotal)}</span></div>`;
+}
+function placeOrder(){
+ const entries=Object.entries(cart).map(([id,q])=>({p:items.find(x=>x.id==id),q})).filter(x=>x.p);
+ if(!entries.length){toast("पहले Cart में सामान जोड़ें");return}
+ const name=document.getElementById("custName").value.trim(),phone=document.getElementById("custPhone").value.trim(),address=document.getElementById("custAddress").value.trim();
+ if(!name||!/^[6-9]\d{9}$/.test(phone)||!address){toast("नाम, सही मोबाइल नंबर और पता भरें");return}
+ const total=entries.reduce((s,{p,q})=>s+p.price*q,0);
+ let msg=`नमस्ते Aridhya Mart! मुझे यह सामान ऑर्डर करना है:\n\n${entries.map(({p,q})=>`${p.name} (${p.unit}) × ${q} = ${money(p.price*q)}`).join("\n")}\n\nकुल: ${money(total)}\nनाम: ${name}\nमोबाइल: ${phone}\nपता: ${address}\nनिर्देश: ${document.getElementById("custNote").value.trim()||"कोई नहीं"}\n\nकृपया ऑर्डर की पुष्टि करें।`;
+ if(navigator.share){navigator.share({title:"Aridhya Mart Order",text:msg}).catch(()=>copyOrder(msg))}
+ else copyOrder(msg);
+}
+function copyOrder(msg){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(msg).then(()=>toast("ऑर्डर मैसेज कॉपी हो गया — WhatsApp पर भेजें")).catch(()=>fallbackCopy(msg))}else fallbackCopy(msg)}
+function fallbackCopy(msg){const t=document.createElement("textarea");t.value=msg;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove();toast("ऑर्डर मैसेज कॉपी हो गया — WhatsApp पर भेजें")}
+let toastTimer;function toast(s){const t=document.getElementById("toast");t.textContent=s;t.style.display="block";clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.style.display="none",2600)}
+document.getElementById("search").addEventListener("input",renderProducts);
+renderCats();renderProducts();renderCartCount();
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(err => console.log("Offline setup:", err));
+  });
+}
+</script>
+</body></html>
